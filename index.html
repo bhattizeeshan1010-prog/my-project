@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Ayesha 🤍</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #f8fbff, #fdf2f8);
+    text-align: center;
+    color: #2c3e50;
+    overflow-x: hidden;
+}
+
+/* PASSWORD SCREEN */
+#lockScreen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    padding: 12px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    width: 220px;
+    text-align: center;
+    font-size: 15px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #1a237e;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #0d1b5e;
+}
+
+.container {
+    display: none;
+    padding: 60px 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    font-size: 42px;
+    color: #1a237e;
+}
+
+h2 {
+    color: #ad1457;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    margin: 30px auto;
+    padding: 35px;
+    width: 85%;
+    max-width: 700px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+#countdown {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #6a1b9a;
+}
+
+#typingMessage {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4a148c;
+    min-height: 120px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating medical icons */
+.icon {
+    position: absolute;
+    font-size: 28px;
+    opacity: 0.1;
+    animation: float 12s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-40px); }
+    100% { transform: translateY(0px); }
+}
+</style>
+</head>
+
+<body>
+
+<div id="lockScreen">
+    <h2>This page is only for someone special 🤍</h2>
+    <input type="password" id="passwordInput" placeholder="Enter the secret word">
+    <br>
+    <button onclick="checkPassword()">Unlock</button>
+    <p id="error" style="color:red;"></p>
+</div>
+
+<div class="icon" style="top:10%; left:10%;">🩺</div>
+<div class="icon" style="top:70%; left:80%;">👩‍⚕️</div>
+<div class="icon" style="top:40%; left:85%;">💊</div>
+
+<div class="container" id="mainContent">
+
+<h1>Best of Luck, Ayesha 🤍</h1>
+<h2>(Manku) – Future Doctor</h2>
+
+<div class="card">
+<p>Your First Year Professional Exams begin on <strong>23rd February 2026</strong>.</p>
+<p>Every late night, every sacrifice, every quiet moment of pressure — it all matters.</p>
+<div id="countdown"></div>
+</div>
+
+<div class="card">
+<p>
+Medicine is not just a degree.  
+It is responsibility. It is strength. It is compassion.
+</p>
+
+<p>
+And you carry all of that with grace.
+</p>
+
+<p>
+One day, patients will look at you and feel safe 
+and they won’t even know how many nights you stayed awake to earn that trust.
+</p>
+</div>
+
+<div class="card">
+<button onclick="startTyping()">Read This 🤍</button>
+<div id="typingMessage"></div>
+</div>
+
+</div>
+
+<script>
+
+function checkPassword() {
+    var password = "130522";
+    var input = document.getElementById("passwordInput").value;
+
+    if(input === password) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        document.getElementById("error").innerText = "Wrong secret 🤍";
+    }
+}
+
+var examDate = new Date("February 23, 2026 00:00:00").getTime();
+
+setInterval(function() {
+    var now = new Date().getTime();
+    var distance = examDate - now;
+
+    var days = Math.floor(distance / (1000*60*60*24));
+    var hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+    var seconds = Math.floor((distance % (1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML =
+        days + " Days • " + hours + " Hours • " +
+        minutes + " Minutes • " + seconds + " Seconds remaining";
+
+}, 1000);
+
+/* FIXED TYPING */
+var message = `Past jesa bhi tha... mere liye bohat pretty tha ek dream tha shayad waise pura nahi hua jaisa socha tha lekin jo hota hai kisi reason se hota hai tumne poocha tha ke maine boys add kiye to tumhe kya faraq para faraq mujhe para tha kyun ke us waqt main wait kar raha tha mein bs chup tha wo bhi apke liye lekin mujhe tha ke jo bhi tha dono sides se tha i thought ke move on jitna mushkil mere liye tha apke liye bhi hoga bs ye reason thi khair ab jo hogaya is baray mein baat ni krni i hope agay sab acha ho dono ke liye jo bhi ho ye choti si wish meri taraf se💙 Ab dil laga kar parho I truly hope you like this no matter how difficult a paper feels remember this your effort is real your dedication is visible, and your dream is valid. I genuinely believe you are becoming someone remarkable. Walk into that exam hall with calm confidence. I'm quietly cheering for you best of luck 😾 aur ab shokhi na bnna  Ayesha`;
+
+var i = 0;
+function startTyping() {
+    if (i < message.length) {
+        document.getElementById("typingMessage").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(startTyping, 35);
+    }
+}
+
+</script>
+
+</body>
+</html>
